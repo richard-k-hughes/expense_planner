@@ -20,6 +20,8 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         // Column takes the width of the widest child
         children: <Widget>[
           // Card takes the childs width unless there is a parent with a clearly defined width. See the two cards below!
