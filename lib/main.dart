@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,6 +14,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<Transaction> transactions = [
+    Transaction(id: '1', title: 'Boba', amount: 7.25, date: DateTime.now()),
+    Transaction(
+        id: '2', title: 'Chichen Nuggets', amount: 6.99, date: DateTime.now())
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,26 +27,21 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        // Column takes the width of the widest child
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // Card takes the childs width unless there is a parent with a clearly defined width. See the two cards below!
-          Card(
-            // Card will takes the width of the child
-            child: Container(
-              child: Text('Chart of Dates'),
-              width: double.infinity,
-              color: Colors.blue,
-            ),
-            elevation: 5,
-          ),
           Container(
-            // width: double.infinity,
+            width: double.infinity,
             child: Card(
-              // Card also takes the width of the parent
-              child: Text('Transaction List'),
+              color: Colors.blue,
+              child: Text('CHART!'),
+              elevation: 5,
             ),
+          ),
+          Column(
+            children: transactions
+                .map((transaction) => Card(child: Text(transaction.title)))
+                .toList(),
           )
         ],
       ),
