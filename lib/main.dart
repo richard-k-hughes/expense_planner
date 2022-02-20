@@ -44,12 +44,34 @@ class MyHomePage extends StatelessWidget {
                         child: Row(
                       children: [
                         Container(
-                          child: Text(transaction.amount.toString()),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                            color: Colors.purple,
+                            width: 2,
+                          )),
+                          padding: EdgeInsets.all(10),
+                          child: Text(
+                            transaction.amount.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.purple),
+                          ),
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(transaction.title),
-                            Text(transaction.date.toString())
+                            Text(
+                              transaction.title,
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              transaction.date.toString(),
+                              style: TextStyle(color: Colors.grey),
+                            )
                           ],
                         )
                       ],
