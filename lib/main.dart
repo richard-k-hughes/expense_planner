@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -53,7 +54,7 @@ class MyHomePage extends StatelessWidget {
                           )),
                           padding: EdgeInsets.all(10),
                           child: Text(
-                            transaction.amount.toString(),
+                            '\$${transaction.amount}',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -69,7 +70,8 @@ class MyHomePage extends StatelessWidget {
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              transaction.date.toString(),
+                              // Can also just pass the format string into DateFormat like 'MMM dd, yyyy'
+                              DateFormat().add_yMMMd().format(transaction.date),
                               style: TextStyle(color: Colors.grey),
                             )
                           ],
