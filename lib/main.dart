@@ -21,8 +21,12 @@ class MyHomePage extends StatelessWidget {
         id: '2', title: 'Chichen Nuggets', amount: 6.99, date: DateTime.now())
   ];
 
-  String titleInput;
-  String amountInput;
+  // String titleInput;
+  // String amountInput;
+
+  // using flutters controller based approach instead of just the onchange listeners
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,18 +54,20 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Title'),
-                    onChanged: (value) => titleInput = value,
+                    // onChanged: (value) => titleInput = value,
+                    controller: titleController,
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: 'Amount'),
-                    onChanged: (value) => amountInput = value,
+                    controller: amountController,
+                    // onChanged: (value) => amountInput = value,
                   ),
                   FlatButton(
                     child: Text('Add Transaction'),
                     textColor: Colors.purple,
                     onPressed: () {
-                      print(titleInput);
-                      print(amountInput);
+                      print(titleController.text);
+                      print(amountController.text);
                     },
                   ),
                 ],
