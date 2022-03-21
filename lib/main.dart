@@ -17,15 +17,16 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Money Management!'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          UserTransactions(),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Money Management!'),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              UserTransactions(),
+            ],
+          ),
+        ));
   }
 }
